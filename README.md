@@ -35,10 +35,10 @@
 
 ## buys
 
-|Column   |Type    |Options      |
-|---------|--------|-------------|
-| user_id | string | null: false |
-| item_id | string | null: false |
+|Column   |Type       |Options      |
+|---------|-----------|-------------|
+| user_id | reference | null: false |
+| item_id | reference | null: false |
 
 ### Association
 - belongs_to :user
@@ -47,15 +47,15 @@
 
 ## deliveries
 
-|Column        |Type    |Options      |
-|--------------|--------|-------------|
-| post_code    | string | null: false |
-| prefecture   | string | null: false |
-| city         | string | null: false |
-| block        | string | null: false |
-| building     | string |             |
-| phone_number | string | null: false |
-| buy_id       | string | null: false |
+|Column        |Type       |Options      |
+|--------------|-----------|-------------|
+| post_code    | string    | null: false |
+| prefecture   | string    | null: false |
+| city         | string    | null: false |
+| block        | string    | null: false |
+| building     | string    |             |
+| phone_number | string    | null: false |
+| buy_id       | reference | null: false |
 
 ### Association
 - belongs_to :buy
