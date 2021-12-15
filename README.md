@@ -24,7 +24,7 @@
 | category_id        | integer   | null: false                    |
 | status_id          | integer   | null: false                    |
 | delivery_charge_id | integer   | null: false                    |
-| from_area_id       | integer   | null: false                    |
+| prefecture_id      | integer   | null: false                    |
 | ship_days_id       | integer   | null: false                    |
 | price              | integer   | null: false                    |
 | user               | reference | null: false, foreign_key: true |
@@ -47,15 +47,15 @@
 
 ## deliveries
 
-|Column        |Type       |Options                         |
-|--------------|-----------|--------------------------------|
-| post_code    | string    | null: false                    |
-| prefecture   | string    | null: false                    |
-| city         | string    | null: false                    |
-| block        | string    | null: false                    |
-| building     | string    |                                |
-| phone_number | string    | null: false                    |
-| buy          | reference | null: false, foreign_key: true |
+|Column         |Type       |Options                         |
+|---------------|-----------|--------------------------------|
+| post_code     | string    | null: false                    |
+| prefecture_id | integer   | null: false                    |
+| city          | string    | null: false                    |
+| block         | string    | null: false                    |
+| building      | string    |                                |
+| phone_number  | string    | null: false                    |
+| buy           | reference | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :buy
