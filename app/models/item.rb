@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  VALID_PRICE_REGEX = /\A[0-9]+\z/
 
   validates :name, presence: true
   validates :item_description, presence: true
@@ -7,7 +8,7 @@ class Item < ApplicationRecord
   validates :delivery_charge_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :ship_days_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :price, presence: true
+  validates :price, presence: true, format: { with: VALID_PRICE_REGEX }
   validates_inclusion_of :price, in:300..9999999
   validates :user_id, presence: true
   validates :image, presence: true
