@@ -9,9 +9,8 @@ class Item < ApplicationRecord
   validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :ship_days_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :price, presence: true, format: { with: VALID_PRICE_REGEX }
-  validates_inclusion_of :price, in:300..9999999
+  validates_inclusion_of :price, in: 300..9_999_999
   validates :image, presence: true
-
 
   belongs_to :user
   extend ActiveHash::Associations::ActiveRecordExtensions
