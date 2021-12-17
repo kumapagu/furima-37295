@@ -15,4 +15,6 @@ class User < ApplicationRecord
   validates :last_name_kana, presence: true, format: { with: VALID_JAPANESE_NAME_KANA_REGEX }
   validates :birthday, presence: true
   validates :password, format: { with: VALID_PASSWORD_REGEX }
+
+  has_many :items
 end
