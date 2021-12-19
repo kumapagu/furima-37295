@@ -101,7 +101,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'priceの数値が10000000以上では出品できない' do
-        @item.price = 10000000
+        @item.price = 10_000_000
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not included in the list')
       end
@@ -115,7 +115,7 @@ RSpec.describe Item, type: :model do
       it 'userが紐付いていなければ登録できない' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("User must exist")
+        expect(@item.errors.full_messages).to include('User must exist')
       end
 
       it 'imageが空では登録できない' do
