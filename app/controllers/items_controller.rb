@@ -17,6 +17,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    @item = Item.find(prams[:id])
+  end
+
   private
 
   def item_params
