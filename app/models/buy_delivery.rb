@@ -1,6 +1,6 @@
 class BuyDelivery
   include ActiveModel::Model
-  att_accessor :user_id, :item_id, :post_code, :prefecture_id, :city, :block, :building, :phone_number, :buy_id
+  attr_accessor :user_id, :item_id, :post_code, :prefecture_id, :city, :block, :building, :phone_number, :buy_id
 
   with_options presence: true do
     validates :user_id
@@ -10,5 +10,12 @@ class BuyDelivery
     validates :city
     validates :block
     validates :phone_number, format: {with: /\A\d{10,11}\z/}
-    validates :buy_id
+    # validates :buy_id
   end
+
+  def save
+    buy = Buy.create(user_id: user_id, item_id: item_id)
+
+    Delivery.create(post_code: post_code, prefecture_id: prefecture_id, city: city, block: block, building: building, phone_number: phone_number, buy_id: buy.id)
+  end
+end
