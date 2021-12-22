@@ -81,8 +81,14 @@ RSpec.describe BuyDelivery, type: :model do
         expect(@buy_delivery.errors.full_messages).to include('Phone number is invalid')
       end
 
-      it 'phone_numberが10桁〜11桁でなくては購入できない' do
+      it 'phone_numberが12桁以上では購入できない' do
         @buy_delivery.phone_number = '090111111111'
+        @buy_delivery.valid?
+        expect(@buy_delivery.errors.full_messages).to include('Phone number is invalid')
+      end
+
+      it 'phone_numberが9桁以下では購入できない' do
+        @buy_delivery.phone_number = '090111111'
         @buy_delivery.valid?
         expect(@buy_delivery.errors.full_messages).to include('Phone number is invalid')
       end
