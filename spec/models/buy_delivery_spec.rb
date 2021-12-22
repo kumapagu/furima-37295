@@ -24,97 +24,97 @@ RSpec.describe BuyDelivery, type: :model do
       it 'post_codeが空では購入できない' do
         @buy_delivery.post_code = ''
         @buy_delivery.valid?
-        expect(@buy_delivery.errors.full_messages).to include("Post code can't be blank")
+        expect(@buy_delivery.errors.full_messages).to include("郵便番号を入力してください")
       end
 
       it 'post_codeが全角では購入できない' do
         @buy_delivery.post_code = '１１１−１１１１'
         @buy_delivery.valid?
-        expect(@buy_delivery.errors.full_messages).to include('Post code is invalid')
+        expect(@buy_delivery.errors.full_messages).to include('郵便番号は不正な値です')
       end
 
       it 'post_codeに"-"が入っていないと購入できない' do
         @buy_delivery.post_code = '1111111'
         @buy_delivery.valid?
-        expect(@buy_delivery.errors.full_messages).to include('Post code is invalid')
+        expect(@buy_delivery.errors.full_messages).to include('郵便番号は不正な値です')
       end
 
       it 'post_codeが"○○○-○○○○"の形でなければ購入できない' do
         @buy_delivery.post_code = '11-11111'
         @buy_delivery.valid?
-        expect(@buy_delivery.errors.full_messages).to include('Post code is invalid')
+        expect(@buy_delivery.errors.full_messages).to include('郵便番号は不正な値です')
       end
 
       it 'prefecture_idが空では購入できない' do
         @buy_delivery.prefecture_id = ''
         @buy_delivery.valid?
-        expect(@buy_delivery.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@buy_delivery.errors.full_messages).to include("都道府県を選択してください")
       end
 
       it 'prefecture_idが"1"では購入できない' do
         @buy_delivery.prefecture_id = 1
         @buy_delivery.valid?
-        expect(@buy_delivery.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@buy_delivery.errors.full_messages).to include("都道府県を選択してください")
       end
 
       it 'cityが空では購入できない' do
         @buy_delivery.city = ''
         @buy_delivery.valid?
-        expect(@buy_delivery.errors.full_messages).to include("City can't be blank")
+        expect(@buy_delivery.errors.full_messages).to include("市区町村を入力してください")
       end
 
       it 'blockが空では購入できない' do
         @buy_delivery.block = ''
         @buy_delivery.valid?
-        expect(@buy_delivery.errors.full_messages).to include("Block can't be blank")
+        expect(@buy_delivery.errors.full_messages).to include("番地を入力してください")
       end
 
       it 'phone_numberが空では購入できない' do
         @buy_delivery.phone_number = ''
         @buy_delivery.valid?
-        expect(@buy_delivery.errors.full_messages).to include("Phone number can't be blank")
+        expect(@buy_delivery.errors.full_messages).to include("電話番号を入力してください")
       end
 
       it 'phone_numberが半角数字でなくては購入できない' do
         @buy_delivery.phone_number = '０９０１１１１１１１１'
         @buy_delivery.valid?
-        expect(@buy_delivery.errors.full_messages).to include('Phone number is invalid')
+        expect(@buy_delivery.errors.full_messages).to include('電話番号は不正な値です')
       end
 
       it 'phone_numberが12桁以上では購入できない' do
         @buy_delivery.phone_number = '090111111111'
         @buy_delivery.valid?
-        expect(@buy_delivery.errors.full_messages).to include('Phone number is invalid')
+        expect(@buy_delivery.errors.full_messages).to include('電話番号は不正な値です')
       end
 
       it 'phone_numberが9桁以下では購入できない' do
         @buy_delivery.phone_number = '090111111'
         @buy_delivery.valid?
-        expect(@buy_delivery.errors.full_messages).to include('Phone number is invalid')
+        expect(@buy_delivery.errors.full_messages).to include('電話番号は不正な値です')
       end
 
       it 'phone_numberに"-"が入っていると購入できない' do
         @buy_delivery.phone_number = '090-1111-1111'
         @buy_delivery.valid?
-        expect(@buy_delivery.errors.full_messages).to include('Phone number is invalid')
+        expect(@buy_delivery.errors.full_messages).to include('電話番号は不正な値です')
       end
 
       it 'tokenが空では購入できない' do
         @buy_delivery.token = ''
         @buy_delivery.valid?
-        expect(@buy_delivery.errors.full_messages).to include("Token can't be blank")
+        expect(@buy_delivery.errors.full_messages).to include("クレジットカード情報を入力してください")
       end
 
       it 'user_idと紐付いていないと購入できない' do
         @buy_delivery.user_id = ''
         @buy_delivery.valid?
-        expect(@buy_delivery.errors.full_messages).to include("User can't be blank")
+        expect(@buy_delivery.errors.full_messages).to include("Userを入力してください")
       end
 
       it 'item_idと紐付いていないと購入できない' do
         @buy_delivery.item_id = ''
         @buy_delivery.valid?
-        expect(@buy_delivery.errors.full_messages).to include("Item can't be blank")
+        expect(@buy_delivery.errors.full_messages).to include("Itemを入力してください")
       end
     end
   end
