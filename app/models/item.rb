@@ -3,13 +3,13 @@ class Item < ApplicationRecord
 
   validates :name, presence: true
   validates :item_description, presence: true
-  validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :status_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :delivery_charge_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :ship_days_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :category_id, numericality: { other_than: 1, message: "を選択してください" }
+  validates :status_id, numericality: { other_than: 1, message: "を選択してください" }
+  validates :delivery_charge_id, numericality: { other_than: 1, message: "を選択してください" }
+  validates :prefecture_id, numericality: { other_than: 1, message: "を選択してください" }
+  validates :ship_days_id, numericality: { other_than: 1, message: "を選択してください" }
   validates :price, presence: true, format: { with: VALID_PRICE_REGEX }
-  validates_inclusion_of :price, in: 300..9_999_999
+  validates_inclusion_of :price, in: 300..9_999_999, message: "は¥300〜¥9,999,999で入力してください"
   validates :image, presence: true
 
   belongs_to :user
