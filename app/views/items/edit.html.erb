@@ -21,7 +21,8 @@ app/assets/stylesheets/items/new.css %>
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :image, id:"item-image" %>
+        <div id="previews"></div>
+        <%= f.file_field :images, id:"item-image", name: "item[images][]", class: "image-add-btn" ,data: {index:0} %>
       </div>
     </div>
     <%# /商品画像 %>

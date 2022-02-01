@@ -31,6 +31,21 @@
   min-height: 500px;
   background-color: rgb(205, 202, 202);
   object-fit: contain;
+  margin: 15px 0 20px 0;
+}
+
+.other-images {
+  display: flex;
+}
+
+.other-image {
+  margin-top: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.other-image>img {
+  width: calc(60vw / 5);
 }
 
 .item-price-box {
